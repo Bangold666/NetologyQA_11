@@ -15,23 +15,23 @@ public class MovieManagerTest {
         //заполнение списка фильмов
         for (int i = 0; i < arraySize; i++) {
             String number = Integer.toString(i);
-            Movie newMovie= new Movie(i, "urlMovie" + number, "Movie" + number, "genre" + number);
+            Movie newMovie = new Movie(i, "urlMovie" + number, "Movie" + number, "genre" + number);
             manager.MovieAdd(newMovie);
-            expectedMovies[i]= newMovie;
+            expectedMovies[i] = newMovie;
         }
 
         Movie[] actual = manager.findAll();
 
-        Assertions.assertArrayEquals(expectedMovies,actual);
+        Assertions.assertArrayEquals(expectedMovies, actual);
     }
 
     @Test
-    void shouldEmptyAndFindAll(){
+    void shouldEmptyAndFindAll() {
         MovieManager manager = new MovieManager();
         Movie[] actual = manager.findAll();
         Movie[] expected = {};
 
-        Assertions.assertArrayEquals(expected,actual);
+        Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
@@ -56,7 +56,7 @@ public class MovieManagerTest {
     }
 
     @Test
-    void  shouldViewConfigLastMovies(){
+    void shouldViewConfigLastMovies() {
 
         MovieManager manager = new MovieManager(3);
         int arraySize = 7;
@@ -65,15 +65,15 @@ public class MovieManagerTest {
         //заполнение списка фильмов
         for (int i = 0; i < arraySize; i++) {
             String number = Integer.toString(i);
-            Movie newMovie= new Movie(i, "urlMovie" + number, "Movie" + number, "genre" + number);
+            Movie newMovie = new Movie(i, "urlMovie" + number, "Movie" + number, "genre" + number);
             manager.MovieAdd(newMovie);
-            expectedMovies[i]= newMovie;
+            expectedMovies[i] = newMovie;
         }
 
         Movie[] actual = manager.findLast();
         Movie[] expected = {expectedMovies[6], expectedMovies[5], expectedMovies[4]};
 
-        Assertions.assertArrayEquals(expected,actual);
+        Assertions.assertArrayEquals(expected, actual);
     }
 
 }
